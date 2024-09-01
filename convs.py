@@ -21,6 +21,10 @@ def convert_audio_ogg(input_file, output_file):
     audio = AS.from_file(input_file)
     audio.export(output_file + ".ogg", format="ogg")
 
+audio_folder = "audio"
+if not os.path.exists(audio_folder):
+    os.makedirs(audio_folder)
+
 # Streamlit App
 st.title("Audio Converter App 🎧")
 st.header("This app converts audio files to different formats.")
