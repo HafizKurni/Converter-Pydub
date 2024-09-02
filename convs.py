@@ -44,7 +44,7 @@ if uploaded_file is not None:
 
     # Convert button
     if st.button("Convert"):
-        output_file = "converted_audio"
+        output_file = "audio/converted_audio"
         
         if format_option == "wav":
             convert_audio_wav(uploaded_file, output_file)
@@ -59,7 +59,7 @@ if uploaded_file is not None:
 
         # Reload and display the converted audio
         with open(output_file + "." + format_option, "rb") as f:
-            st.audio(f.read(), format=f"{format_option}")
+            st.audio(f.read(), format=f"audio/{format_option}")
         
         # Download button for the converted file
         with open(output_file + "." + format_option, "rb") as f:
@@ -69,7 +69,7 @@ if uploaded_file is not None:
 
 
 while(condistion==True):
-    converted_file_path = "converted_audio" + "." + format_option if uploaded_file else None
+    converted_file_path = "audio/converted_audio" + "." + format_option if uploaded_file else None
 
     if converted_file_path and os.path.exists(converted_file_path):
         if st.button("Delete converted file"):
